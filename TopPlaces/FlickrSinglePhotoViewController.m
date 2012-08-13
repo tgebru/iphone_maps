@@ -30,23 +30,24 @@
 - (void)setImage:(UIImage *)image
 {
     NSLog(@"Flickr: %s", __FUNCTION__);
-    [self showSpinner];  
+
     [self.imageView setImage:image];
     [self.imageView setNeedsDisplay];
     [self.scrollView setNeedsDisplay];
-    self.navigationItem.rightBarButtonItem = nil;
-}
+    self.navigationItem.rightBarButtonItem = nil; 
+    }
 
 - (void)viewDidLoad
 {
     NSLog(@"Flickr: %s", __FUNCTION__);
     [super viewDidLoad];
-
+    if (!self.imageView.image) {[self showSpinner];}
 }
 
 -(void) viewDidAppear:(BOOL)animated
 {
     NSLog(@"Flickr: %s", __FUNCTION__);
+
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -56,6 +57,9 @@
     //[self.imageView setImage:self.image];
 
     [super viewWillAppear:animated];
+    
+  
+    
 
 
     //self.imageView.frame = CGRectMake(0, 0, self.imageView.image.size.width, self.imageView.image.size.height);
